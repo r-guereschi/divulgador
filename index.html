@@ -3,129 +3,133 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Meus Eventos Cobertos</title>
+		<title>Minha Cobertura de Eventos</title>
 		<style>
+			:root {
+				--primary: #2c3e50;
+				--bg: #f4f7f6;
+				--white: #ffffff;
+			}
 			body {
-				font-family: sans-serif;
-				background: #f0f2f5;
+				font-family: "Inter", sans-serif;
+				background: var(--bg);
+				margin: 0;
 				padding: 20px;
-				display: flex;
-				justify-content: center;
+				color: var(--primary);
+			}
+			h1 {
+				text-align: center;
+				margin-bottom: 40px;
 			}
 			.container {
 				display: flex;
 				gap: 30px;
-				width: 100%;
-				max-width: 1100px;
+				max-width: 1200px;
+				margin: 0 auto;
+				flex-wrap: wrap;
 			}
 			.column {
 				flex: 1;
 				min-width: 300px;
 			}
-			.platform-name {
-				font-size: 1.4rem;
-				font-weight: bold;
-				text-align: center;
-				margin-bottom: 20px;
+			.column-title {
+				font-size: 1.2rem;
+				font-weight: 800;
+				text-transform: uppercase;
+				border-bottom: 3px solid var(--primary);
 				padding-bottom: 10px;
-				border-bottom: 3px solid #333;
+				margin-bottom: 20px;
+				display: flex;
+				justify-content: space-between;
 			}
-
 			.event-card {
-				background: #fff;
+				background: var(--white);
 				border-radius: 10px;
 				overflow: hidden;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 				margin-bottom: 20px;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-				position: relative;
-				aspect-ratio: 16/9;
+				transition: transform 0.2s;
+				cursor: pointer;
+				text-decoration: none;
+				display: block;
 			}
-			.event-image {
+			.event-card:hover {
+				transform: translateY(-3px);
+			}
+			.event-img {
 				width: 100%;
-				height: 100%;
+				height: 160px;
 				object-fit: cover;
+				background: #ddd;
 			}
-			.event-info {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
+			.event-content {
 				padding: 15px;
-				background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-				color: #fff;
 			}
-			.event-title {
+			.event-name {
 				font-weight: bold;
 				font-size: 0.9rem;
-				margin-bottom: 5px;
+				margin-bottom: 8px;
+				line-height: 1.3;
+				color: #1a1a1a;
 			}
-			.event-details {
+			.event-meta {
 				font-size: 0.75rem;
-				opacity: 0.8;
+				color: #666;
 			}
 		</style>
 	</head>
 	<body>
+		<h1>📸 Últimas Coberturas</h1>
+
 		<div class="container">
 			<div class="column">
-				<div class="platform-name">FOTOP</div>
-				<div id="fotop-container">
-					<p style="text-align: center">Buscando eventos...</p>
-				</div>
+				<div class="column-title">Fotop <span id="count-fotop"></span></div>
+				<div id="list-fotop"></div>
 			</div>
-
 			<div class="column">
-				<div class="platform-name">Foco Radical</div>
-				<div id="foco-radical-container">
-					<p style="text-align: center">Em breve...</p>
-				</div>
+				<div class="column-title">Foco Radical <span id="count-foco"></span></div>
+				<div id="list-foco"></div>
 			</div>
 		</div>
 
 		<script>
-			async function carregarEventos() {
-				const containerFotop = document.getElementById("fotop-container");
-
+			async function loadEvents() {
 				try {
-					// O '?t=' força o navegador a baixar a versão nova e ignorar o cache
-					const url = "eventos.json?t=" + new Date().getTime();
-					console.log("Tentando baixar:", url);
-
-					const response = await fetch(url);
-					if (!response.ok) throw new Error("Arquivo json não encontrado");
-
+					const response = await fetch("eventos.json?v=" + Date.now());
 					const data = await response.json();
-					console.log("Dados carregados com sucesso:", data);
 
-					if (data.fotop && data.fotop.length > 0) {
-						containerFotop.innerHTML = ""; // Limpa o texto de carregamento
-
-						data.fotop.forEach((evento) => {
-							containerFotop.innerHTML += `
-                            <a href="${evento.link}" target="_blank" style="text-decoration: none;">
-                                <div class="event-card">
-                                    <img src="${evento.imagem}" class="event-image" onerror="this.src='https://via.placeholder.com/400x225?text=Erro+na+Imagem'">
-                                    <div class="event-info">
-                                        <div class="event-title">${evento.titulo}</div>
-                                        <div class="event-details">
-                                            <span>📅 ${evento.data}</span> | <span>📍 ${evento.local}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        `;
-						});
-					} else {
-						containerFotop.innerHTML = "<p>Nenhum evento encontrado no JSON.</p>";
-					}
-				} catch (error) {
-					console.error("Erro no carregamento:", error);
-					containerFotop.innerHTML = `<p style="color:red">Erro: ${error.message}</p>`;
+					renderList(data.fotop, "list-fotop", "count-fotop");
+					renderList(data.foco_radical, "list-foco", "count-foco");
+				} catch (err) {
+					console.error("Erro ao carregar eventos:", err);
 				}
 			}
 
-			// Inicia a busca
-			carregarEventos();
+			function renderList(list, containerId, countId) {
+				const container = document.getElementById(containerId);
+				document.getElementById(countId).innerText = `(${list.length})`;
+
+				if (!list || list.length === 0) {
+					container.innerHTML = "<p>Nenhum evento recente.</p>";
+					return;
+				}
+
+				container.innerHTML = list
+					.map(
+						(ev) => `
+                <a href="${ev.link}" class="event-card" target="_blank">
+                    <img src="${ev.imagem}" class="event-img" onerror="this.src='https://placehold.co/400x225?text=Sem+Foto'">
+                    <div class="event-content">
+                        <div class="event-name">${ev.titulo}</div>
+                        <div class="event-meta">📅 ${ev.data} • 📍 ${ev.local}</div>
+                    </div>
+                </a>
+            `,
+					)
+					.join("");
+			}
+
+			loadEvents();
 		</script>
 	</body>
 </html>
