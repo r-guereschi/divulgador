@@ -1,6 +1,13 @@
 {
     "fotop": [
         {
+            "titulo": "Pateco",
+            "data": "15/04/2026",
+            "local": "Taquaritinga",
+            "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/thumb-default-eventos.jpg",
+            "link": "https://voce.fotop.com/fotos/eventos?evento=208983"
+        },
+        {
             "titulo": "CIRCUITO MUNDO VERDE CORRIDA DE RUA",
             "data": "05/04/2026",
             "local": "Marília",
@@ -20,13 +27,6 @@
             "local": "Américo Brasiliense",
             "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_258617_g.jpg",
             "link": "https://voce.fotop.com/fotos/eventos?evento=258617"
-        },
-        {
-            "titulo": "Track & Field Experience Running 2026 - Jaboticabal",
-            "data": "15/03/2026 - 16/03/2026",
-            "local": "Microrregión de Jaboticabal",
-            "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_228683_g.jpg",
-            "link": "https://voce.fotop.com/fotos/eventos?evento=228683"
         }
     ]
 }
