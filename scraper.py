@@ -29,7 +29,7 @@ def scrape_fotop():
 def scrape_foco_radical():
     try:
         # A URL que contém esses cards (geralmente a home ou busca)
-        url = "https://www.focoradical.com.br/" 
+        url = "https://vocee.focoradical.com.br/" 
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         }
