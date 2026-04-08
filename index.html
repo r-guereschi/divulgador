@@ -23,8 +23,8 @@
 			}
 			.container {
 				display: flex;
-				gap: 30px;
-				max-width: 1200px;
+				gap: 20px; /* Reduzi um pouco o gap para caber melhor as 3 colunas */
+				max-width: 1400px; /* Aumentei a largura máxima para acomodar 3 colunas */
 				margin: 0 auto;
 				flex-wrap: wrap;
 			}
@@ -86,9 +86,15 @@
 				<div class="column-title">Fotop <span id="count-fotop"></span></div>
 				<div id="list-fotop"></div>
 			</div>
+
 			<div class="column">
 				<div class="column-title">Foco Radical <span id="count-foco"></span></div>
 				<div id="list-foco"></div>
+			</div>
+
+			<div class="column">
+				<div class="column-title">Fotto <span id="count-fotto"></span></div>
+				<div id="list-fotto"></div>
 			</div>
 		</div>
 
@@ -100,6 +106,7 @@
 
 					renderList(data.fotop, "list-fotop", "count-fotop");
 					renderList(data.foco_radical, "list-foco", "count-foco");
+					renderList(data.fotto, "list-fotto", "count-fotto"); // Chamada para Fotto
 				} catch (err) {
 					console.error("Erro ao carregar eventos:", err);
 				}
@@ -107,14 +114,17 @@
 
 			function renderList(list, containerId, countId) {
 				const container = document.getElementById(containerId);
-				document.getElementById(countId).innerText = `(${list.length})`;
+				const countElement = document.getElementById(countId);
 
-				if (!list || list.length === 0) {
+				const items = list || [];
+				countElement.innerText = `(${items.length})`;
+
+				if (items.length === 0) {
 					container.innerHTML = "<p>Nenhum evento recente.</p>";
 					return;
 				}
 
-				container.innerHTML = list
+				container.innerHTML = items
 					.map(
 						(ev) => `
                 <a href="${ev.link}" class="event-card" target="_blank">

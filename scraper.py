@@ -79,22 +79,74 @@ def scrape_foco_radical():
     except Exception as e:
         print(f"Erro na Foco Radical: {e}")
         return []
+    
 
-# --- EXECUÇÃO PRINCIPAL ---
+def scrape_fotto():
+    """Função de scrape própria para a plataforma Fotto"""
+    try:
+        url = "https://voce.fotto.com.br/"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+        
+        response = requests.get(url, headers=headers, timeout=15)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Busca pelos cards usando a classe identificada no HTML enviado
+        cards = soup.find_all('div', class_='event-card', limit=4)
+        eventos = []
+
+        for card in cards:
+            parent_a = card.find_parent('a')
+            if not parent_a:
+                continue
+                
+            link = parent_a['href']
+            if not link.startswith('http'):
+                link = "https://voce.fotto.com.br" + link
+            
+            titulo_tag = card.find(class_='event-card-title')
+            titulo = titulo_tag.text.strip() if titulo_tag else "Evento sem título"
+            
+            img_tag = card.find('img')
+            imagem = img_tag['src'] if img_tag else ""
+            
+            local_tag = card.find(class_='event-card-location')
+            local = local_tag.find('p').text.strip() if local_tag else "Brasil"
+            
+            data_tag = card.find(class_='event-card-date')
+            data_texto = data_tag.find('p').text.strip() if data_tag else "Data a definir"
+
+            eventos.append({
+                "titulo": titulo,
+                "data": data_texto,
+                "local": local,
+                "imagem": imagem,
+                "link": link
+            })
+            
+        return eventos
+    except Exception as e:
+        print(f"Erro na Fotto: {e}")
+        return []
+
+# --- EXECUÇÃO PRINCIPAL ATUALIZADA ---
 
 lista_fotop = scrape_fotop()
 lista_foco = scrape_foco_radical()
+lista_fotto = scrape_fotto() # Chamada da nova função
 
-# Organiza o dicionário final para o seu HTML ler corretamente
+# Organiza o dicionário final incluindo a Fotto
 dados_finais = {
     "fotop": lista_fotop,
-    "foco_radical": lista_foco
+    "foco_radical": lista_foco,
+    "fotto": lista_fotto # Adicionado ao JSON final
 }
 
 # Salva tudo no mesmo arquivo JSON
 try:
     with open('eventos.json', 'w', encoding='utf-8') as f:
         json.dump(dados_finais, f, indent=4, ensure_ascii=False)
-    print(f"Sucesso! Fotop: {len(lista_fotop)} | Foco Radical: {len(lista_foco)} eventos salvos.")
+    print(f"Sucesso! Fotop: {len(lista_fotop)} | Foco Radical: {len(lista_foco)} | Fotto: {len(lista_fotto)} eventos salvos.")
 except Exception as e:
     print(f"Erro ao salvar arquivo: {e}")
