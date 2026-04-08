@@ -1,0 +1,26 @@
+name: Atualizar Eventos
+on:
+ schedule:
+  - cron: "0 */6 * * *" # Roda a cada 6 horas
+ workflow_dispatch: # Permite rodar manualmente
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v2
+   - name: Configurar Python
+     uses: actions/setup-python@v2
+     with:
+      python-version: "3.9"
+   - name: Instalar dependências
+     run: pip install requests beautifulsoup4
+   - name: Rodar Scraper
+     run: python scraper.py
+   - name: Salvar mudanças
+     run: |
+      git config --global user.name 'Bot de Atualização'
+      git config --global user.email 'bot@github.com'
+      git add eventos.json
+      git commit -m "Atualizando últimos eventos" || exit 0
+      git push
