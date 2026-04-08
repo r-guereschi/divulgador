@@ -28,34 +28,56 @@ def scrape_fotop():
 
 def scrape_foco_radical():
     try:
-        # URL da busca ou página principal da Foco Radical
-        url = "https://vocee.focoradical.com.br/" 
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        response = requests.get(url, headers=headers)
+        # A URL que contém esses cards (geralmente a home ou busca)
+        url = "https://www.focoradical.com.br/" 
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+        
+        response = requests.get(url, headers=headers, timeout=15)
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # A Foco Radical geralmente usa containers com a classe 'card-prova' ou similar
-        # Ajustado para a estrutura comum da plataforma
-        cards = soup.find_all('div', class_='item-prova', limit=4)
-        
+        # O card principal é a div com classe 'competition'
+        cards = soup.find_all('div', class_='competition', limit=4)
         eventos = []
-        for card in cards:
-            # Selecionando os dados com base na estrutura interna deles
-            titulo_link = card.find('a', class_='titulo-prova')
-            img_tag = card.find('img')
-            data_local = card.find('div', class_='data-local-prova').text.strip().split('|')
 
-            evento = {
-                "titulo": titulo_link.text.strip(),
-                "data": data_local[0].strip() if len(data_local) > 0 else "",
-                "local": data_local[1].strip() if len(data_local) > 1 else "",
-                "imagem": img_tag['src'] if img_tag else "",
-                "link": titulo_link['href']
-            }
-            eventos.append(evento)
+        for card in cards:
+            wrapper = card.find('a', class_='competition-wrapper')
+            if not wrapper:
+                continue
+                
+            # Extração do Título
+            titulo = wrapper.find('h2', class_='details-name').text.strip()
+            
+            # Extração do Link
+            link = wrapper['href']
+            if not link.startswith('http'):
+                link = "https://www.focoradical.com.br" + link
+            
+            # Extração da Imagem (eles usam data-original para lazyload)
+            img_div = wrapper.find('div', class_='competition-banner')
+            imagem = img_div.get('data-original') or ""
+            
+            # Extração da Data (Concatenando dia, mês e ano)
+            dia = wrapper.find('div', class_='calendar-day').text.strip()
+            mes = wrapper.find('div', class_='calendar-month').text.strip()
+            ano = wrapper.find('div', class_='calendar-year').text.strip()
+            data_formatada = f"{dia} {mes} {ano}"
+            
+            # Extração do Local
+            local = wrapper.find('small').text.strip() if wrapper.find('small') else "Brasil"
+
+            eventos.append({
+                "titulo": titulo,
+                "data": data_formatada,
+                "local": local,
+                "imagem": imagem,
+                "link": link
+            })
+            
         return eventos
     except Exception as e:
-        print(f"Erro ao raspar Foco Radical: {e}")
+        print(f"Erro na Foco Radical: {e}")
         return []
 
 # --- EXECUÇÃO PRINCIPAL ---
