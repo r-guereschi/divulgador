@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Meus Eventos Cobertos</title>
+		<style>
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				background-color: #f4f4f9;
+				margin: 0;
+				padding: 40px;
+				display: flex;
+				justify-content: center;
+			}
+
+			.container {
+				display: flex;
+				gap: 20px;
+				width: 100%;
+				max-width: 1000px;
+			}
+
+			.column {
+				flex: 1;
+				text-align: center;
+			}
+
+			.platform-name {
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: #333;
+				margin-bottom: 20px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+
+			/* Estilo do Card de Evento */
+			.event-card {
+				background-color: #fff;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+				cursor: pointer;
+				position: relative;
+				aspect-ratio: 4 / 5; /* Mantém proporção vertical similar à foto */
+			}
+
+			.event-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.event-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.event-info {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 20px;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+				color: white;
+				text-align: left;
+			}
+
+			.event-title {
+				font-size: 1.1rem;
+				font-weight: bold;
+				margin: 0 0 8px 0;
+			}
+
+			.event-details {
+				font-size: 0.85rem;
+				opacity: 0.9;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			// Função para carregar os dados do arquivo JSON gerado pelo Python
+			async function carregarEventos() {
+				try {
+					// O fetch busca o arquivo que o GitHub Action vai criar/atualizar
+					const response = await fetch("./eventos.json");
+					const data = await response.json();
+
+					// Atualizando a coluna da FOTOP
+					if (data.fotop) {
+						const fotop = data.fotop;
+
+						// Selecionamos o card e trocamos as informações
+						const cardFotop = document.querySelector("#fotop-event");
+						cardFotop.querySelector(".event-image").src = fotop.imagem;
+						cardFotop.querySelector(".event-title").innerText = fotop.titulo;
+
+						// Atualiza a data e o local (formatando o texto)
+						cardFotop.querySelector(".event-details").innerHTML = `
+                        <span>📅 ${fotop.data}</span><br>
+                        <span>📍 ${fotop.local}</span>
+                    `;
+
+						// Torna o card clicável para o link real do evento
+						const linkWrapper = cardFotop.parentElement;
+						if (linkWrapper.tagName === "A") {
+							linkWrapper.href = fotop.link;
+						}
+					}
+
+					// Aqui faremos o mesmo para a Foco Radical quando o scraper estiver pronto
+					if (data.foco_radical) {
+						// Lógica similar para a outra coluna
+					}
+				} catch (error) {
+					console.error("Erro ao carregar os eventos:", error);
+					document.querySelectorAll(".event-title").forEach((el) => {
+						el.innerText = "Erro ao carregar dados.";
+					});
+				}
+			}
+
+			// Executa a função assim que a página abre
+			carregarEventos();
+		</script>
+		<div class="container">
+			<div class="column">
+				<div class="platform-name">Foco Radical</div>
+				<div id="foco-radical-event" class="event-card">
+					<img
+						src="https://via.placeholder.com/400x500"
+						alt="Último Evento Foco Radical"
+						class="event-image"
+					/>
+					<div class="event-info">
+						<div class="event-title">Carregando último evento...</div>
+						<div class="event-details">Aguardando conexão...</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="platform-name">FOTOP</div>
+				<div id="fotop-event" class="event-card">
+					<img
+						src="https://via.placeholder.com/400x500"
+						alt="Último Evento FOTOP"
+						class="event-image"
+					/>
+					<div class="event-info">
+						<div class="event-title">Carregando último evento...</div>
+						<div class="event-details">Aguardando conexão...</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
