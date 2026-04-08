@@ -6,137 +6,126 @@
 		<title>Meus Eventos Cobertos</title>
 		<style>
 			body {
-				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-				background-color: #f4f4f9;
-				margin: 0;
-				padding: 40px;
+				font-family: sans-serif;
+				background: #f0f2f5;
+				padding: 20px;
 				display: flex;
 				justify-content: center;
 			}
-
 			.container {
 				display: flex;
-				gap: 20px;
+				gap: 30px;
 				width: 100%;
-				max-width: 1000px;
+				max-width: 1100px;
 			}
-
 			.column {
 				flex: 1;
-				text-align: center;
+				min-width: 300px;
 			}
-
 			.platform-name {
-				font-size: 1.5rem;
+				font-size: 1.4rem;
 				font-weight: bold;
-				color: #333;
+				text-align: center;
 				margin-bottom: 20px;
-				text-transform: uppercase;
-				letter-spacing: 1px;
+				padding-bottom: 10px;
+				border-bottom: 3px solid #333;
 			}
 
-			/* Estilo do Card de Evento */
 			.event-card {
-				background-color: #fff;
-				border-radius: 12px;
+				background: #fff;
+				border-radius: 10px;
 				overflow: hidden;
-				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-				transition: transform 0.3s ease;
-				cursor: pointer;
+				margin-bottom: 20px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 				position: relative;
-				aspect-ratio: 4 / 5; /* Mantém proporção vertical similar à foto */
+				aspect-ratio: 16/9;
 			}
-
-			.event-card:hover {
-				transform: translateY(-5px);
-			}
-
 			.event-image {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 			}
-
 			.event-info {
 				position: absolute;
 				bottom: 0;
 				left: 0;
 				right: 0;
-				padding: 20px;
-				background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-				color: white;
-				text-align: left;
+				padding: 15px;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+				color: #fff;
 			}
-
 			.event-title {
-				font-size: 1.1rem;
 				font-weight: bold;
-				margin: 0 0 8px 0;
+				font-size: 0.9rem;
+				margin-bottom: 5px;
 			}
-
 			.event-details {
-				font-size: 0.85rem;
-				opacity: 0.9;
+				font-size: 0.75rem;
+				opacity: 0.8;
 			}
 		</style>
 	</head>
 	<body>
-		<script>
-			// Função para carregar os dados do arquivo JSON gerado pelo Python
-			async function carregarEventos() {
-				try {
-					const response = await fetch("eventos.json?t=" + Date.now());
-					const data = await response.json();
-
-					if (data.fotop && data.fotop.length > 0) {
-						const container = document.getElementById("fotop-container");
-						container.innerHTML = ""; // Limpa o "Carregando..."
-
-						// Percorre os 4 eventos e cria o HTML de cada um
-						data.fotop.forEach((evento) => {
-							const cardHTML = `
-                    <a href="${evento.link}" target="_blank" style="text-decoration: none; display: block; margin-bottom: 20px;">
-                        <div class="event-card">
-                            <img src="${evento.imagem}" class="event-image">
-                            <div class="event-info">
-                                <div class="event-title">${evento.titulo}</div>
-                                <div class="event-details">
-                                    <span>📅 ${evento.data}</span><br>
-                                    <span>📍 ${evento.local}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                `;
-							container.innerHTML += cardHTML;
-						});
-					}
-				} catch (error) {
-					console.error("Erro ao carregar:", error);
-				}
-			}
-			carregarEventos();
-		</script>
 		<div class="container">
 			<div class="column">
-				<div class="platform-name">Foco Radical</div>
-				<div id="foco-radical-event" class="event-card">
-					<img
-						src="https://via.placeholder.com/400x500"
-						alt="Último Evento Foco Radical"
-						class="event-image"
-					/>
-					<div class="event-info">
-						<div class="event-title">Carregando último evento...</div>
-						<div class="event-details">Aguardando conexão...</div>
-					</div>
+				<div class="platform-name">FOTOP</div>
+				<div id="fotop-container">
+					<p style="text-align: center">Buscando eventos...</p>
 				</div>
 			</div>
 
 			<div class="column">
-				<div class="platform-name">FOTOP</div>
-				<div id="fotop-container" class="events-list"></div>
+				<div class="platform-name">Foco Radical</div>
+				<div id="foco-radical-container">
+					<p style="text-align: center">Em breve...</p>
+				</div>
 			</div>
 		</div>
+
+		<script>
+			async function carregarEventos() {
+				const containerFotop = document.getElementById("fotop-container");
+
+				try {
+					// O '?t=' força o navegador a baixar a versão nova e ignorar o cache
+					const url = "eventos.json?t=" + new Date().getTime();
+					console.log("Tentando baixar:", url);
+
+					const response = await fetch(url);
+					if (!response.ok) throw new Error("Arquivo json não encontrado");
+
+					const data = await response.json();
+					console.log("Dados carregados com sucesso:", data);
+
+					if (data.fotop && data.fotop.length > 0) {
+						containerFotop.innerHTML = ""; // Limpa o texto de carregamento
+
+						data.fotop.forEach((evento) => {
+							containerFotop.innerHTML += `
+                            <a href="${evento.link}" target="_blank" style="text-decoration: none;">
+                                <div class="event-card">
+                                    <img src="${evento.imagem}" class="event-image" onerror="this.src='https://via.placeholder.com/400x225?text=Erro+na+Imagem'">
+                                    <div class="event-info">
+                                        <div class="event-title">${evento.titulo}</div>
+                                        <div class="event-details">
+                                            <span>📅 ${evento.data}</span> | <span>📍 ${evento.local}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+						});
+					} else {
+						containerFotop.innerHTML = "<p>Nenhum evento encontrado no JSON.</p>";
+					}
+				} catch (error) {
+					console.error("Erro no carregamento:", error);
+					containerFotop.innerHTML = `<p style="color:red">Erro: ${error.message}</p>`;
+				}
+			}
+
+			// Inicia a busca
+			carregarEventos();
+		</script>
 	</body>
 </html>
