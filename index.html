@@ -81,51 +81,30 @@
 		</style>
 	</head>
 	<body>
-		<script>
-			// Função para carregar os dados do arquivo JSON gerado pelo Python
-			async function carregarEventos() {
-				try {
-					// O fetch busca o arquivo que o GitHub Action vai criar/atualizar
-					const response = await fetch("./eventos.json");
-					const data = await response.json();
-
-					// Atualizando a coluna da FOTOP
-					if (data.fotop) {
-						const fotop = data.fotop;
-
-						// Selecionamos o card e trocamos as informações
-						const cardFotop = document.querySelector("#fotop-event");
-						cardFotop.querySelector(".event-image").src = fotop.imagem;
-						cardFotop.querySelector(".event-title").innerText = fotop.titulo;
-
-						// Atualiza a data e o local (formatando o texto)
-						cardFotop.querySelector(".event-details").innerHTML = `
-                        <span>📅 ${fotop.data}</span><br>
-                        <span>📍 ${fotop.local}</span>
-                    `;
-
-						// Torna o card clicável para o link real do evento
-						const linkWrapper = cardFotop.parentElement;
-						if (linkWrapper.tagName === "A") {
-							linkWrapper.href = fotop.link;
-						}
-					}
-
-					// Aqui faremos o mesmo para a Foco Radical quando o scraper estiver pronto
-					if (data.foco_radical) {
-						// Lógica similar para a outra coluna
-					}
-				} catch (error) {
-					console.error("Erro ao carregar os eventos:", error);
-					document.querySelectorAll(".event-title").forEach((el) => {
-						el.innerText = "Erro ao carregar dados.";
-					});
-				}
-			}
-
-			// Executa a função assim que a página abre
-			carregarEventos();
-		</script>
+		async function carregarEventos() { try { const response = await
+		fetch('eventos.json?t=' + Date.now()); const data = await response.json(); if
+		(data.fotop && data.fotop.length > 0) { const container =
+		document.getElementById('fotop-container'); container.innerHTML = ''; // Limpa
+		o "Carregando..." // Percorre os 4 eventos e cria o HTML de cada um
+		data.fotop.forEach(evento => { const cardHTML = `
+		<a
+			href="${evento.link}"
+			target="_blank"
+			style="text-decoration: none; display: block; margin-bottom: 20px"
+		>
+			<div class="event-card">
+				<img src="${evento.imagem}" class="event-image" />
+				<div class="event-info">
+					<div class="event-title">${evento.titulo}</div>
+					<div class="event-details">
+						<span>📅 ${evento.data}</span><br />
+						<span>📍 ${evento.local}</span>
+					</div>
+				</div>
+			</div>
+		</a>
+		`; container.innerHTML += cardHTML; }); } } catch (error) {
+		console.error("Erro ao carregar:", error); } } carregarEventos();
 		<div class="container">
 			<div class="column">
 				<div class="platform-name">Foco Radical</div>
