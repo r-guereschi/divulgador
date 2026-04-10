@@ -123,7 +123,7 @@ def scrape_fotto():
             if local_tag:
                 p_tag = local_tag.find("p")
                 if p_tag:
-                    local_text = p_tag.text.strip()
+                    local_text = " ".join(p_tag.stripped_strings)
                     local = (
                         local_text.split("•")[0].strip()
                         if "•" in local_text
@@ -134,12 +134,11 @@ def scrape_fotto():
             else:
                 local = "Brasil"
 
-            data_tag = card.find(class_="event-card-date")
-            data_texto = (
-                data_tag.find("p").text.strip()
-                if data_tag and data_tag.find("p")
-                else "Data a definir"
-            )
+            data_p = card.select_one(".event-card-date p")
+            if data_p:
+                data_texto = " ".join(data_p.stripped_strings)
+            else:
+                data_texto = "Data a definir"
 
             eventos.append(
                 {
