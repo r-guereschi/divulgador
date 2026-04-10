@@ -135,10 +135,7 @@ def scrape_fotto():
                 local = "Brasil"
 
             data_p = card.select_one(".event-card-date p")
-            if data_p:
-                data_texto = " ".join(data_p.stripped_strings)
-            else:
-                data_texto = "Data a definir"
+            data_texto = data_p.get_text(strip=True) if data_p else "Data a definir"
 
             eventos.append(
                 {
