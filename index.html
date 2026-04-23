@@ -20,11 +20,11 @@
 		<style>
 			body {
 				font-family: "Inter", sans-serif;
-				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+				background: linear-gradient(135deg, #222831 0%, #393e46 100%);
 				min-height: 100vh;
 			}
 			.header {
-				background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+				background: linear-gradient(135deg, #393e46 0%, #222831 100%);
 				padding: 1rem 0;
 				position: fixed;
 				top: 0;
@@ -36,8 +36,8 @@
 			.header-title {
 				font-weight: 800;
 				font-size: 1.8rem;
-				color: #e94560;
-				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+				color: #dfd0b8;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 				margin: 0;
 				flex-shrink: 0;
 			}
@@ -58,35 +58,35 @@
 				width: 100%;
 				padding: 0.8rem 1.2rem;
 				font-size: 1rem;
-				border: 2px solid rgba(255, 255, 255, 0.2);
+				border: 2px solid rgba(223, 208, 184, 0.25);
 				border-radius: 25px;
-				background: rgba(255, 255, 255, 0.1);
-				color: white;
+				background: rgba(223, 208, 184, 0.1);
+				color: #dfd0b8;
 				outline: none;
 				transition: all 0.3s ease;
 			}
 			.search-input::placeholder {
-				color: rgba(255, 255, 255, 0.7);
+				color: rgba(223, 208, 184, 0.7);
 			}
 			.search-input:focus {
-				border-color: #e94560;
-				background: rgba(255, 255, 255, 0.15);
-				box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+				border-color: #dfd0b8;
+				background: rgba(223, 208, 184, 0.18);
+				box-shadow: 0 0 20px rgba(223, 208, 184, 0.22);
 			}
 			.search-icon {
 				position: absolute;
 				right: 1.2rem;
 				top: 50%;
 				transform: translateY(-50%);
-				color: rgba(255, 255, 255, 0.7);
+				color: rgba(223, 208, 184, 0.8);
 				font-size: 1rem;
 			}
 			.content-section {
 				padding: 5rem 0 3rem 0; /* Espaço ajustado para o header menor */
 			}
 			.event-card {
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.1);
+				background: rgba(148, 137, 121, 0.12);
+				border: 1px solid rgba(223, 208, 184, 0.16);
 				border-radius: 1rem;
 				overflow: hidden;
 				transition: all 0.3s ease;
@@ -96,7 +96,7 @@
 				opacity: 1;
 				transform: scale(1);
 				cursor: pointer;
-				-webkit-tap-highlight-color: rgba(233, 69, 96, 0.2);
+				-webkit-tap-highlight-color: rgba(223, 208, 184, 0.2);
 			}
 			.event-card.hidden {
 				opacity: 0;
@@ -105,8 +105,8 @@
 			}
 			.event-card:hover {
 				transform: translateY(-5px) scale(1.02);
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-				border-color: #e94560;
+				box-shadow: 0 10px 30px rgba(34, 40, 49, 0.35);
+				border-color: #948979;
 			}
 			.event-img {
 				width: 100%;
@@ -120,21 +120,21 @@
 				font-weight: 600;
 				font-size: 1.1rem;
 				margin-bottom: 0.5rem;
-				color: #ffffff;
+				color: #dfd0b8;
 			}
 			.event-meta {
 				font-size: 0.9rem;
-				color: #b0b0b0;
+				color: rgba(223, 208, 184, 0.85);
 			}
 			.column-title {
 				font-weight: 800;
 				font-size: 1.5rem;
-				color: #e94560;
+				color: #dfd0b8;
 				margin-bottom: 2rem;
 				text-align: center;
 			}
 			.badge-count {
-				background: #e94560;
+				background: #948979;
 				color: white;
 				border-radius: 50%;
 				padding: 0.2rem 0.6rem;
@@ -241,12 +241,12 @@
 				right: 20px;
 				width: 50px;
 				height: 50px;
-				background: #25d366;
+				background: #948979;
 				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 4px 12px rgba(34, 40, 49, 0.25);
 				transition: all 0.3s ease;
 				z-index: 1000;
 				animation: tremidinha 15s infinite;
