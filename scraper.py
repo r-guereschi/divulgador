@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+from datetime import datetime
 
 
 def scrape_fotop():
@@ -92,7 +93,7 @@ def scrape_foco_radical():
 def scrape_fotto():
     """Função de scrape própria para a plataforma Fotto"""
     try:
-        url = "https://voce.fotto.com.br/"
+        url = "https://www.fotto.com.br/voce"
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         }
@@ -161,9 +162,28 @@ def scrape_fotto():
 
 # --- EXECUÇÃO PRINCIPAL ATUALIZADA ---
 
+# Carrega eventos existentes
+try:
+    with open("eventos.json", "r", encoding="utf-8") as f:
+        dados_existentes = json.load(f)
+except FileNotFoundError:
+    dados_existentes = {"fotop": [], "foco_radical": [], "fotto": []}
+
 lista_fotop = scrape_fotop()
 lista_foco = scrape_foco_radical()
 lista_fotto = scrape_fotto()  # Chamada da nova função
+
+# Para fotto, define data da primeira extração se for novo
+eventos_fotto_existentes = {
+    evento["link"]: evento for evento in dados_existentes.get("fotto", [])
+}
+for evento in lista_fotto:
+    if evento["link"] not in eventos_fotto_existentes:
+        # Novo evento, define data como hoje
+        evento["data"] = datetime.now().strftime("%d/%m/%Y")
+    else:
+        # Mantém a data existente
+        evento["data"] = eventos_fotto_existentes[evento["link"]]["data"]
 
 # Organiza o dicionário final incluindo a Fotto
 dados_finais = {
