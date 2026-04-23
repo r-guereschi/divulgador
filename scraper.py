@@ -112,7 +112,7 @@ def scrape_fotto():
 
             link = a_tag["href"]
             if not link.startswith("http"):
-                link = "https://voce.fotto.com.br" + link
+                link = "https://fotto.com.br" + link
 
             titulo_tag = card.find("h3", class_="event-card-title")
             titulo = titulo_tag.text.strip() if titulo_tag else "Evento sem título"
