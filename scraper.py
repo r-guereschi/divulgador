@@ -6,12 +6,12 @@ from datetime import datetime
 
 def scrape_fotop():
     try:
-        url = "https://voce.fotop.com/"
+        url = "https://voce.fotop.com/?status=ativo"
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, "html.parser")
 
-        cards = soup.find_all("div", class_="card-evt-busca", limit=4)
+        cards = soup.find_all("div", class_="card-evt-busca")
 
         eventos = []
         for card in cards:
@@ -41,7 +41,7 @@ def scrape_foco_radical():
         soup = BeautifulSoup(response.text, "html.parser")
 
         # O card principal é a div com classe 'competition'
-        cards = soup.find_all("div", class_="competition", limit=4)
+        cards = soup.find_all("div", class_="competition")
         eventos = []
 
         for card in cards:
