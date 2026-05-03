@@ -283,6 +283,13 @@
     ],
     "foco_radical": [
         {
+            "titulo": "LIVE! RUN XP - SÃO JOSÉ DO RIO PRETO",
+            "data": "03 May 2026",
+            "local": "São José do Rio Preto - SP",
+            "imagem": "https://cdn.focoradical.com.br/newfoco/logos/20260408163428live-xp.png",
+            "link": "https://www.focoradical.com.br/prova/20260503-live-run-xp-sao-jose-do-rio-preto-sao-jose-do-rio-preto-2237"
+        },
+        {
             "titulo": "TRACK&FIELD RUN SERIES 2024 - CIDADE JARDIM I",
             "data": "31 Mar 2024",
             "local": "São Paulo - SP",
@@ -414,13 +421,6 @@
             "local": "Americo Brasiliense - SP",
             "imagem": "https://cdn.focoradical.com.br/newfoco/banners/20221113105608AGU227SET0206.jpg",
             "link": "https://www.focoradical.com.br/prova/20221113-corrida-pedestre-7-de-setembro-2022-americo-brasiliense"
-        },
-        {
-            "titulo": "1ª CORRIDA ETEC BENTO CARLOS 2022",
-            "data": "12 Nov 2022",
-            "local": "Guariba - SP",
-            "imagem": "https://cdn.focoradical.com.br/newfoco/banners/20221112121004AGU22ETEC0280.jpg",
-            "link": "https://www.focoradical.com.br/prova/20221112-1a-corrida-etec-bento-carlos"
         }
     ],
     "fotto": [
