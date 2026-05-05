@@ -21,7 +21,7 @@
 			}
 
 			:root {
-				--accent: #ccffb5;
+				--accent: #0aa9e7;
 				--accent-dim: rgba(232, 255, 0, 0.12);
 				--bg: #080808;
 				--surface: #111111;
@@ -67,7 +67,7 @@
 				height: 68px;
 				display: flex;
 				align-items: center;
-				justify-content: space-between;
+				justify-content: flex-end;
 				background: rgba(8, 8, 8, 0.85);
 				backdrop-filter: blur(20px);
 				border-bottom: 1px solid var(--border);
@@ -194,6 +194,19 @@
 
 			.hero-title span {
 				color: var(--accent);
+			}
+
+			.hero-heading {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+			}
+
+			.hero-logo {
+				height: 180px;
+				width: auto;
+				object-fit: contain;
+				filter: invert(1) brightness(1);
 			}
 
 			.hero-meta {
@@ -543,26 +556,8 @@
 				.hero-strip::after {
 					display: none;
 				}
-				.hero-meta {
-					flex-direction: row;
-				}
-				.tab-bar {
-					padding: 0 1.2rem;
-				}
-				.main {
-					padding: 0 1.2rem 4rem;
-				}
-			}
-
-			@media (max-width: 480px) {
-				.logo {
-					font-size: 1.15rem;
-				}
-				.search-wrap {
-					width: 140px;
-				}
-				.hero-title {
-					font-size: 2.2rem;
+				.hero-logo {
+					height: 120px;
 				}
 				.stat-pill .num {
 					font-size: 1.5rem;
@@ -586,12 +581,6 @@
 	</head>
 	<body>
 		<header>
-			<a href="#" class="logo">
-				<img
-					src="img/WhatsApp_Image_2026-05-05_at_11.51.56-removebg-preview.png"
-					alt="Logo"
-				/>
-			</a>
 			<div class="search-wrap">
 				<input type="text" id="search-input" placeholder="Buscar prova..." />
 				<svg viewBox="0 0 24 24">
@@ -602,10 +591,15 @@
 		</header>
 
 		<div class="hero-strip">
-			<div>
+			<div class="hero-heading">
 				<h1 class="hero-title">
 					FOTOGRAFIA<br /><span>ESPORTIVA</span><br />DE CORRIDA
 				</h1>
+				<img
+					class="hero-logo"
+					src="img/WhatsApp_Image_2026-05-05_at_11.51.56-removebg-preview.png"
+					alt="Logo"
+				/>
 			</div>
 			<div class="hero-meta">
 				<div class="stat-pill">
