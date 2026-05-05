@@ -74,15 +74,16 @@
 			}
 
 			.logo {
-				font-family: var(--font-display);
-				font-size: 1.5rem;
-				letter-spacing: 0.08em;
-				color: var(--text);
-				line-height: 1;
-				display: flex;
+				display: inline-flex;
 				align-items: center;
-				gap: 10px;
 				text-decoration: none;
+			}
+
+			.logo img {
+				height: 60px;
+				width: auto;
+				display: block;
+				filter: invert(1) brightness(1);
 			}
 
 			.logo-dot {
@@ -586,8 +587,10 @@
 	<body>
 		<header>
 			<a href="#" class="logo">
-				<span class="logo-dot"></span>
-				VOCÊ EM<span style="color: var(--accent)">AÇÃO</span>
+				<img
+					src="img/WhatsApp_Image_2026-05-05_at_11.51.56-removebg-preview.png"
+					alt="Logo"
+				/>
 			</a>
 			<div class="search-wrap">
 				<input type="text" id="search-input" placeholder="Buscar prova..." />
