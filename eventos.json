@@ -425,13 +425,6 @@
     ],
     "fotto": [
         {
-            "titulo": "TESTE",
-            "data": "14/05/2026",
-            "local": "Taquaritinga , SP",
-            "imagem": "https://cdn.fotto.com.br/static/site/card/fotto-em-breve.svg",
-            "link": "https://fotto.com.br/teste/e/340208"
-        },
-        {
             "titulo": "CAMPEONATO DE VOLEI DE AREIA",
             "data": "10/05/2026",
             "local": "Taquaritinga , SP",
@@ -451,6 +444,13 @@
             "local": "São José do Rio Preto , SP",
             "imagem": "https://cdn.fotto.com.br/galleries/302923/cover.1776034977881.jpg",
             "link": "https://fotto.com.br/seguralta-marathon-2026/e/302923"
+        },
+        {
+            "titulo": "Volei entre amigos TAQUARITINGA",
+            "data": "14/05/2026",
+            "local": "Taquaritinga , SP",
+            "imagem": "https://cdn.fotto.com.br/galleries/14976/cover.1721264616382.jpg",
+            "link": "https://fotto.com.br/volei-entre-amigos-taquaritinga/e/14976"
         }
     ]
 }
