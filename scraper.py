@@ -88,27 +88,6 @@ def with_normalized_dates(event):
     return event
 
 
-def event_sort_key(event):
-    """Data mais recente primeiro; eventos sem data ficam no final."""
-    try:
-        date_key = -date.fromisoformat(event.get("data_inicio", "")).toordinal()
-        without_date = 0
-    except (TypeError, ValueError):
-        date_key = 0
-        without_date = 1
-    return (
-        without_date,
-        date_key,
-        ascii_key(event.get("titulo", "")),
-        event.get("link", ""),
-    )
-
-
-def sort_events(events):
-    """Impede que a ordem variável das vitrines dos portais altere o JSON."""
-    return sorted(events, key=event_sort_key)
-
-
 def get_soup(url):
     response = requests.get(url, headers=HEADERS, timeout=20)
     response.raise_for_status()
@@ -306,7 +285,7 @@ def load_existing():
 def merge_events(existing, scraped):
     """Atualiza o que foi encontrado sem apagar histórico quando um portal falha."""
     if scraped is None:
-        return sort_events(existing)
+        return existing
     by_link = {event.get("link"): event for event in existing if event.get("link")}
     result = []
     for fresh in scraped:
@@ -316,13 +295,17 @@ def merge_events(existing, scraped):
         if not fresh.get("data_inicio") and previous.get("data_inicio"):
             merged.update({key: previous[key] for key in ("data", "data_inicio", "data_fim") if key in previous})
         result.append(with_normalized_dates(merged))
-    return sort_events(result + list(by_link.values()))
+    return result + list(by_link.values())
 
 
 def build_data(existing, scrape=True):
     results = {source: None for source in SOURCES}
     if scrape:
         results = {"fotop": scrape_fotop(), "foco_radical": scrape_foco_radical(), "fotto": scrape_fotto()}
+        # A vitrine da Fotto não informa mais a data da prova. Confirma cada
+        # evento na página individual antes de atualizar o JSON.
+        if results["fotto"] is not None:
+            results["fotto"] = repair_fotto_dates(results["fotto"])
     return {source: merge_events(existing[source], results[source]) for source in SOURCES}
 
 

@@ -307,20 +307,20 @@
       "data_fim": "2025-11-16"
     },
     {
-      "titulo": "3 Festival de natação Nelson Parise",
-      "data": "15/11/2025",
-      "local": "Taquaritinga",
-      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_208642_g.jpg",
-      "link": "https://voce.fotop.com/fotos/eventos?evento=208642",
-      "data_inicio": "2025-11-15",
-      "data_fim": "2025-11-15"
-    },
-    {
       "titulo": "Lupo Sport Corre SJRP",
       "data": "15/11/2025",
       "local": "São José do Rio Preto",
       "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_194073_g.jpg",
       "link": "https://voce.fotop.com/fotos/eventos?evento=194073",
+      "data_inicio": "2025-11-15",
+      "data_fim": "2025-11-15"
+    },
+    {
+      "titulo": "3 Festival de natação Nelson Parise",
+      "data": "15/11/2025",
+      "local": "Taquaritinga",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_208642_g.jpg",
+      "link": "https://voce.fotop.com/fotos/eventos?evento=208642",
       "data_inicio": "2025-11-15",
       "data_fim": "2025-11-15"
     },
@@ -671,60 +671,76 @@
   ],
   "fotto": [
     {
-      "titulo": "CAMPEONATO DE VOLEI DE AREIA",
-      "data": "Data não informada",
-      "local": "Taquaritinga , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/335720/cover.1778310984657.jpg",
-      "link": "https://www.fotto.com.br/campeonato-de-volei-de-areia/e/335720"
-    },
-    {
-      "titulo": "Circuito de Corridas Jaú Serve 2026 - Ibitinga",
-      "data": "Data não informada",
-      "local": "Ibitinga , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/321401/cover.1776712560975.jpg",
-      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-ibitinga/e/321401"
-    },
-    {
-      "titulo": "Circuito de Corridas Jaú Serve 2026 - Matão",
-      "data": "Data não informada",
-      "local": "Matão , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/362368/cover.1781208826968.jpg",
-      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-matao/e/362368"
+      "titulo": "CIRCUITO MUNDO VERDE - ETAPA BAURU",
+      "data": "02/08/2026",
+      "local": "Bauru , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg",
+      "link": "https://www.fotto.com.br/circuito-mundo-verde-etapa-bauru/e/393658",
+      "data_inicio": "2026-08-02",
+      "data_fim": "2026-08-02"
     },
     {
       "titulo": "Circuito de Corridas Jaú Serve 2026 - Novo Horizonte",
-      "data": "Data não informada",
+      "data": "26/07/2026",
       "local": "Novo Horizonte , SP",
       "imagem": "https://cdn.fotto.com.br/galleries/389755/cover.1784558286681.jpg",
-      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-novo-horizonte/e/389755"
+      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-novo-horizonte/e/389755",
+      "data_inicio": "2026-07-26",
+      "data_fim": "2026-07-26"
     },
     {
-      "titulo": "CIRCUITO MUNDO VERDE - ETAPA BAURU",
-      "data": "Data não informada",
-      "local": "Bauru , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg",
-      "link": "https://www.fotto.com.br/circuito-mundo-verde-etapa-bauru/e/393658"
+      "titulo": "Circuito de Corridas Jaú Serve 2026 - Matão",
+      "data": "14/06/2026",
+      "local": "Matão , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/362368/cover.1781208826968.jpg",
+      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-matao/e/362368",
+      "data_inicio": "2026-06-14",
+      "data_fim": "2026-06-14"
     },
     {
       "titulo": "Circuito Sesc de Corridas- Etapa Rio Preto",
-      "data": "Data não informada",
+      "data": "07/06/2026",
       "local": "São José do Rio Preto , SP",
       "imagem": "https://cdn.fotto.com.br/galleries/351986/cover.1780858584377.jpg",
-      "link": "https://www.fotto.com.br/circuito-sesc-de-corridas-etapa-rio-preto/e/351986"
+      "link": "https://www.fotto.com.br/circuito-sesc-de-corridas-etapa-rio-preto/e/351986",
+      "data_inicio": "2026-06-07",
+      "data_fim": "2026-06-07"
+    },
+    {
+      "titulo": "CAMPEONATO DE VOLEI DE AREIA",
+      "data": "08/05/2026",
+      "local": "Taquaritinga , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/335720/cover.1778310984657.jpg",
+      "link": "https://www.fotto.com.br/campeonato-de-volei-de-areia/e/335720",
+      "data_inicio": "2026-05-08",
+      "data_fim": "2026-05-08"
+    },
+    {
+      "titulo": "Circuito de Corridas Jaú Serve 2026 - Ibitinga",
+      "data": "26/04/2026",
+      "local": "Ibitinga , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/321401/cover.1776712560975.jpg",
+      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-ibitinga/e/321401",
+      "data_inicio": "2026-04-26",
+      "data_fim": "2026-04-26"
     },
     {
       "titulo": "SEGURALTA MARATHON 2026",
-      "data": "Data não informada",
+      "data": "12/04/2026",
       "local": "São José do Rio Preto , SP",
       "imagem": "https://cdn.fotto.com.br/galleries/302923/cover.1776034977881.jpg",
-      "link": "https://www.fotto.com.br/seguralta-marathon-2026/e/302923"
+      "link": "https://www.fotto.com.br/seguralta-marathon-2026/e/302923",
+      "data_inicio": "2026-04-12",
+      "data_fim": "2026-04-12"
     },
     {
       "titulo": "Volei entre amigos TAQUARITINGA",
-      "data": "Data não informada",
+      "data": "17/07/2024",
       "local": "Taquaritinga , SP",
       "imagem": "https://cdn.fotto.com.br/galleries/14976/cover.1721264616382.jpg",
-      "link": "https://www.fotto.com.br/volei-entre-amigos-taquaritinga/e/14976"
+      "link": "https://www.fotto.com.br/volei-entre-amigos-taquaritinga/e/14976",
+      "data_inicio": "2024-07-17",
+      "data_fim": "2024-07-17"
     }
   ]
 }
