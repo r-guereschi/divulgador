@@ -1,8 +1,6 @@
 name: Atualizar Eventos
 on:
- schedule:
-  - cron: "0 */6 * * *" # Roda a cada 6 horas
- workflow_dispatch: # Permite rodar manualmente
+ workflow_dispatch: # Atualização manual pelo botão "Run workflow" no GitHub
 
 jobs:
  build:
