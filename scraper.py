@@ -88,30 +88,6 @@ def with_normalized_dates(event):
     return event
 
 
-def event_sort_key(event):
-    """Ordena por data decrescente e usa título/link para desempate estável."""
-    raw_date = event.get("data_inicio", "")
-    try:
-        # A chave negativa coloca a prova mais recente primeiro. Eventos sem
-        # data (ou com data inválida) ficam sempre no fim da lista.
-        date_key = -date.fromisoformat(raw_date).toordinal()
-        missing_date = 0
-    except (TypeError, ValueError):
-        date_key = 0
-        missing_date = 1
-    return (
-        missing_date,
-        date_key,
-        ascii_key(event.get("titulo", "")),
-        event.get("link", ""),
-    )
-
-
-def sort_events(events):
-    """Mantém o JSON idêntico entre execuções, mesmo se o portal variar a vitrine."""
-    return sorted(events, key=event_sort_key)
-
-
 def get_soup(url):
     response = requests.get(url, headers=HEADERS, timeout=20)
     response.raise_for_status()
@@ -319,10 +295,7 @@ def merge_events(existing, scraped):
         if not fresh.get("data_inicio") and previous.get("data_inicio"):
             merged.update({key: previous[key] for key in ("data", "data_inicio", "data_fim") if key in previous})
         result.append(with_normalized_dates(merged))
-    # Portais podem alterar a ordem de seus cards a cada requisição. Ordenar
-    # aqui, antes de salvar, torna a execução local e a do GitHub Actions
-    # determinísticas.
-    return sort_events(result + list(by_link.values()))
+    return result + list(by_link.values())
 
 
 def build_data(existing, scrape=True):
@@ -344,12 +317,6 @@ def self_test():
     for raw, expected in cases.items():
         _, start, end = normalize_date_text(raw)
         assert (start, end) == expected, (raw, start, end)
-    ordered = sort_events([
-        {"titulo": "Sem data", "link": "c"},
-        {"titulo": "Mais antigo", "data_inicio": "2026-01-01", "link": "b"},
-        {"titulo": "Mais recente", "data_inicio": "2026-08-02", "link": "a"},
-    ])
-    assert [event["titulo"] for event in ordered] == ["Mais recente", "Mais antigo", "Sem data"]
     print(f"OK: {len(cases)} formatos de data validados.")
 
 
