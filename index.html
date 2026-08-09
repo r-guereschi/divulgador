@@ -1,154 +1,531 @@
-Exit code: 0
-Wall time: 0.5 seconds
-Output:
+Exit code: 0 Wall time: 0.5 seconds Output:
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Você em Ação — prévia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --ink:#10201d; --cream:#f6f3ec; --paper:#fffdf8; --lime:#d8f336; --teal:#00a99b; --line:#dce2d8; --muted:#60706a; --shadow:0 18px 45px rgba(16,32,29,.12); }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--cream); color:var(--ink); font-family:"DM Sans",sans-serif; }
-    a { color:inherit; }
-    .topbar { min-height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; background:var(--paper); border-bottom:1px solid var(--line); }
-    .brand { font:800 1.5rem/1 "Barlow Condensed",sans-serif; letter-spacing:.03em; text-decoration:none; text-transform:uppercase; }
-    .brand span { color:var(--teal); }
-    .top-actions { display:flex; align-items:center; gap:18px; }
-    .help { font-size:.86rem; font-weight:600; color:var(--muted); text-decoration:none; }
-    .wa-mini { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#e8f8e8; color:#176c34; font-size:.82rem; font-weight:700; text-decoration:none; }
-    .wa-mini b { font-size:1.05rem; }
-    main { max-width:1180px; margin:auto; padding:48px 28px 78px; }
-    .eyebrow { display:flex; align-items:center; gap:9px; margin:0 0 12px; color:#557069; font-size:.77rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
-    .dot { width:9px; height:9px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 5px rgba(0,169,155,.12); }
-    h1 { max-width:710px; margin:0; font:800 clamp(3rem,7vw,6rem)/.86 "Barlow Condensed",sans-serif; letter-spacing:-.03em; text-transform:uppercase; }
-    h1 em { color:var(--teal); font-style:italic; }
-    .intro { max-width:580px; margin:22px 0 34px; color:var(--muted); font-size:1rem; line-height:1.55; }
-    .latest { display:grid; grid-template-columns:1.12fr .88fr; min-height:380px; overflow:hidden; background:var(--ink); box-shadow:var(--shadow); }
-    .latest-image { min-height:300px; background:linear-gradient(90deg,rgba(16,32,29,.05),rgba(16,32,29,.55)),url("https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg") center/cover; }
-    .latest-copy { position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:44px; color:white; }
-    .ribbon { display:inline-block; padding:7px 10px; margin-bottom:20px; background:var(--lime); color:var(--ink); font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-    .latest-copy h2 { margin:0 0 14px; font:700 clamp(2.3rem,4vw,3.8rem)/.91 "Barlow Condensed",sans-serif; letter-spacing:-.015em; text-transform:uppercase; }
-    .event-meta { display:flex; flex-wrap:wrap; gap:13px; color:#cfdbd6; font-size:.9rem; }
-    .event-meta span { display:flex; align-items:center; gap:6px; }
-    .event-meta b { color:var(--lime); }
-    .primary { display:inline-flex; align-items:center; gap:12px; margin-top:30px; padding:15px 18px; background:var(--lime); color:var(--ink); border-radius:4px; font-size:.88rem; font-weight:800; text-decoration:none; transition:transform .2s; }
-    .primary:hover { transform:translateY(-3px); }
-    .primary strong { font-size:1.25rem; line-height:.8; }
-    .find { display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center; padding:26px 0 18px; border-bottom:1px solid var(--line); }
-    .find h3 { margin:0 0 4px; font-size:1rem; }
-    .find p { margin:0; color:var(--muted); font-size:.86rem; }
-    .search { display:flex; width:min(390px,100%); background:var(--paper); border:1px solid #becac1; border-radius:5px; overflow:hidden; }
-    .search input { width:100%; border:0; outline:0; padding:14px; background:transparent; font:inherit; color:var(--ink); }
-    .search button { border:0; padding:0 17px; background:var(--ink); color:white; cursor:pointer; font-weight:700; }
-    .archive { padding-top:28px; }
-    .archive-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; margin-bottom:16px; }
-    .archive h2 { margin:0; font:700 1.8rem/1 "Barlow Condensed",sans-serif; letter-spacing:.02em; text-transform:uppercase; }
-    .archive a { color:var(--teal); font-size:.84rem; font-weight:700; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .card { overflow:hidden; background:var(--paper); border:1px solid var(--line); text-decoration:none; transition:transform .2s,box-shadow .2s; }
-    .card:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(16,32,29,.08); }
-    .card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#e7ece6; transition:transform .35s ease; }
-    .card:hover img { transform:scale(1.04); }
-    .card-copy { padding:17px 18px 18px; }
-    .card small { color:var(--teal); font-size:.72rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
-    .card h3 { margin:9px 0; font-size:.98rem; line-height:1.25; }
-    .card p { margin:0; color:var(--muted); font-size:.8rem; }
-    .whatsapp { position:fixed; right:24px; bottom:24px; display:flex; align-items:center; gap:11px; padding:13px 18px; border-radius:999px; background:#25d366; color:#073d18; box-shadow:0 10px 28px rgba(17,112,53,.3); font-size:.86rem; font-weight:800; text-decoration:none; z-index:2; }
-    .whatsapp i { display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:white; font-style:normal; }
-    @media (max-width:720px) { .topbar { padding:0 20px; } .help,.wa-mini span { display:none; } main { padding:35px 20px 90px; } .latest { grid-template-columns:1fr; } .latest-image { min-height:230px; } .latest-copy { padding:28px; } .find { grid-template-columns:1fr; } .search { width:100%; } .cards { grid-template-columns:1fr; } .whatsapp { right:16px; bottom:16px; padding:13px 16px; } }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <a href="#" class="brand">Você em <span>Ação</span></a>
-    <div class="top-actions"><a href="#eventos" class="help">Ver eventos anteriores</a><a class="wa-mini" href="https://wa.me/5516988308280" target="_blank" rel="noopener"><b>◉</b><span>Fale conosco</span></a></div>
-  </header>
-  <main>
-    <p class="eyebrow"><span class="dot"></span> Suas fotos esportivas</p>
-    <h1>Encontrar suas fotos ficou <em>simples.</em></h1>
-    <p class="intro">Comece pelo evento mais recente. Depois, se precisar, pesquise uma prova anterior ou fale diretamente com a equipe.</p>
-    <section class="latest" aria-labelledby="latest-title">
-      <div id="latest-image" class="latest-image" role="img" aria-label="Capa do evento mais recente"></div>
-      <div class="latest-copy">
-        <span class="ribbon">Evento mais recente</span>
-        <h2 id="latest-title">Carregando evento mais recente...</h2>
-        <div class="event-meta"><span id="latest-date"><b>●</b></span><span id="latest-place"><b>⌖</b></span></div>
-        <a id="latest-link" href="#" class="primary" target="_blank" rel="noopener">Ver minhas fotos <strong>→</strong></a>
-      </div>
-    </section>
-    <section class="find" aria-label="Busca de eventos">
-      <div><h3>Não encontrou sua prova?</h3><p>Pesquise pelo nome do evento ou pela cidade.</p></div>
-      <form class="search" id="search-form"><input id="search-input" aria-label="Buscar evento" placeholder="Ex.: Corrida de Bauru"><button type="submit">Buscar</button></form>
-    </section>
-    <section id="eventos" class="archive">
-      <div class="archive-head"><h2 id="archive-title">Todos os eventos</h2><a id="event-count" href="#eventos">Carregando...</a></div>
-      <div id="events-list" class="cards" aria-live="polite"></div>
-    </section>
-  </main>
-  <a class="whatsapp" href="https://wa.me/5516988308280" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><i>◉</i> Precisa de ajuda?</a>
-  <script>
-    const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e7ece6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2360706a' font-family='sans-serif' font-size='20'%3EFoto em breve%3C/text%3E%3C/svg%3E";
-    let events = [];
-    const normalize = value => (value || "").toLocaleLowerCase("pt-BR");
-    const byNewest = (a, b) => (b.data_inicio || "").localeCompare(a.data_inicio || "");
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Você em Ação</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--ink: #10201d;
+				--cream: #f6f3ec;
+				--paper: #fffdf8;
+				--lime: #d8f336;
+				--teal: #00a99b;
+				--line: #dce2d8;
+				--muted: #60706a;
+				--shadow: 0 18px 45px rgba(16, 32, 29, 0.12);
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				background: var(--cream);
+				color: var(--ink);
+				font-family: "DM Sans", sans-serif;
+			}
+			a {
+				color: inherit;
+			}
+			.topbar {
+				min-height: 76px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 5.5vw;
+				background: var(--paper);
+				border-bottom: 1px solid var(--line);
+			}
+			.brand {
+				font:
+					800 1.5rem/1 "Barlow Condensed",
+					sans-serif;
+				letter-spacing: 0.03em;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+			.brand span {
+				color: var(--teal);
+			}
+			.top-actions {
+				display: flex;
+				align-items: center;
+				gap: 18px;
+			}
+			.help {
+				font-size: 0.86rem;
+				font-weight: 600;
+				color: var(--muted);
+				text-decoration: none;
+			}
+			.wa-mini {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				padding: 10px 14px;
+				border-radius: 999px;
+				background: #e8f8e8;
+				color: #176c34;
+				font-size: 0.82rem;
+				font-weight: 700;
+				text-decoration: none;
+			}
+			.wa-mini b {
+				font-size: 1.05rem;
+			}
+			main {
+				max-width: 1180px;
+				margin: auto;
+				padding: 48px 28px 78px;
+			}
+			.eyebrow {
+				display: flex;
+				align-items: center;
+				gap: 9px;
+				margin: 0 0 12px;
+				color: #557069;
+				font-size: 0.77rem;
+				font-weight: 700;
+				letter-spacing: 0.11em;
+				text-transform: uppercase;
+			}
+			.dot {
+				width: 9px;
+				height: 9px;
+				border-radius: 50%;
+				background: var(--teal);
+				box-shadow: 0 0 0 5px rgba(0, 169, 155, 0.12);
+			}
+			h1 {
+				max-width: 710px;
+				margin: 0;
+				font:
+					800 clamp(3rem, 7vw, 6rem)/0.86 "Barlow Condensed",
+					sans-serif;
+				letter-spacing: -0.03em;
+				text-transform: uppercase;
+			}
+			h1 em {
+				color: var(--teal);
+				font-style: italic;
+			}
+			.intro {
+				max-width: 580px;
+				margin: 22px 0 34px;
+				color: var(--muted);
+				font-size: 1rem;
+				line-height: 1.55;
+			}
+			.latest {
+				display: grid;
+				grid-template-columns: 1.12fr 0.88fr;
+				min-height: 380px;
+				overflow: hidden;
+				background: var(--ink);
+				box-shadow: var(--shadow);
+			}
+			.latest-image {
+				min-height: 300px;
+				background:
+					linear-gradient(90deg, rgba(16, 32, 29, 0.05), rgba(16, 32, 29, 0.55)),
+					url("https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg")
+						center/cover;
+			}
+			.latest-copy {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				padding: 44px;
+				color: white;
+			}
+			.ribbon {
+				display: inline-block;
+				padding: 7px 10px;
+				margin-bottom: 20px;
+				background: var(--lime);
+				color: var(--ink);
+				font-size: 0.7rem;
+				font-weight: 800;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+			}
+			.latest-copy h2 {
+				margin: 0 0 14px;
+				font:
+					700 clamp(2.3rem, 4vw, 3.8rem)/0.91 "Barlow Condensed",
+					sans-serif;
+				letter-spacing: -0.015em;
+				text-transform: uppercase;
+			}
+			.event-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 13px;
+				color: #cfdbd6;
+				font-size: 0.9rem;
+			}
+			.event-meta span {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+			.event-meta b {
+				color: var(--lime);
+			}
+			.primary {
+				display: inline-flex;
+				align-items: center;
+				gap: 12px;
+				margin-top: 30px;
+				padding: 15px 18px;
+				background: var(--lime);
+				color: var(--ink);
+				border-radius: 4px;
+				font-size: 0.88rem;
+				font-weight: 800;
+				text-decoration: none;
+				transition: transform 0.2s;
+			}
+			.primary:hover {
+				transform: translateY(-3px);
+			}
+			.primary strong {
+				font-size: 1.25rem;
+				line-height: 0.8;
+			}
+			.find {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 14px;
+				align-items: center;
+				padding: 26px 0 18px;
+				border-bottom: 1px solid var(--line);
+			}
+			.find h3 {
+				margin: 0 0 4px;
+				font-size: 1rem;
+			}
+			.find p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.86rem;
+			}
+			.search {
+				display: flex;
+				width: min(390px, 100%);
+				background: var(--paper);
+				border: 1px solid #becac1;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			.search input {
+				width: 100%;
+				border: 0;
+				outline: 0;
+				padding: 14px;
+				background: transparent;
+				font: inherit;
+				color: var(--ink);
+			}
+			.search button {
+				border: 0;
+				padding: 0 17px;
+				background: var(--ink);
+				color: white;
+				cursor: pointer;
+				font-weight: 700;
+			}
+			.archive {
+				padding-top: 28px;
+			}
+			.archive-head {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 18px;
+				margin-bottom: 16px;
+			}
+			.archive h2 {
+				margin: 0;
+				font:
+					700 1.8rem/1 "Barlow Condensed",
+					sans-serif;
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+			}
+			.archive a {
+				color: var(--teal);
+				font-size: 0.84rem;
+				font-weight: 700;
+			}
+			.cards {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 16px;
+			}
+			.card {
+				overflow: hidden;
+				background: var(--paper);
+				border: 1px solid var(--line);
+				text-decoration: none;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
+			}
+			.card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 24px rgba(16, 32, 29, 0.08);
+			}
+			.card img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16/9;
+				object-fit: cover;
+				background: #e7ece6;
+				transition: transform 0.35s ease;
+			}
+			.card:hover img {
+				transform: scale(1.04);
+			}
+			.card-copy {
+				padding: 17px 18px 18px;
+			}
+			.card small {
+				color: var(--teal);
+				font-size: 0.72rem;
+				font-weight: 800;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+			}
+			.card h3 {
+				margin: 9px 0;
+				font-size: 0.98rem;
+				line-height: 1.25;
+			}
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.8rem;
+			}
+			.whatsapp {
+				position: fixed;
+				right: 24px;
+				bottom: 24px;
+				display: flex;
+				align-items: center;
+				gap: 11px;
+				padding: 13px 18px;
+				border-radius: 999px;
+				background: #25d366;
+				color: #073d18;
+				box-shadow: 0 10px 28px rgba(17, 112, 53, 0.3);
+				font-size: 0.86rem;
+				font-weight: 800;
+				text-decoration: none;
+				z-index: 2;
+			}
+			.whatsapp i {
+				display: grid;
+				place-items: center;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				background: white;
+				font-style: normal;
+			}
+			@media (max-width: 720px) {
+				.topbar {
+					padding: 0 20px;
+				}
+				.help,
+				.wa-mini span {
+					display: none;
+				}
+				main {
+					padding: 35px 20px 90px;
+				}
+				.latest {
+					grid-template-columns: 1fr;
+				}
+				.latest-image {
+					min-height: 230px;
+				}
+				.latest-copy {
+					padding: 28px;
+				}
+				.find {
+					grid-template-columns: 1fr;
+				}
+				.search {
+					width: 100%;
+				}
+				.cards {
+					grid-template-columns: 1fr;
+				}
+				.whatsapp {
+					right: 16px;
+					bottom: 16px;
+					padding: 13px 16px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header class="topbar">
+			<a href="#" class="brand">Você em <span>Ação</span></a>
+			<div class="top-actions">
+				<a href="#eventos" class="help">Ver eventos anteriores</a
+				><a
+					class="wa-mini"
+					href="https://wa.me/5516988308280"
+					target="_blank"
+					rel="noopener"
+					><b>◉</b><span>Fale conosco</span></a
+				>
+			</div>
+		</header>
+		<main>
+			<p class="eyebrow"><span class="dot"></span> Suas fotos esportivas</p>
+			<h1>Encontrar suas fotos ficou <em>simples.</em></h1>
+			<p class="intro">
+				Comece pelo evento mais recente. Depois, se precisar, pesquise uma prova
+				anterior ou fale diretamente com a equipe.
+			</p>
+			<section class="latest" aria-labelledby="latest-title">
+				<div
+					id="latest-image"
+					class="latest-image"
+					role="img"
+					aria-label="Capa do evento mais recente"
+				></div>
+				<div class="latest-copy">
+					<span class="ribbon">Evento mais recente</span>
+					<h2 id="latest-title">Carregando evento mais recente...</h2>
+					<div class="event-meta">
+						<span id="latest-date"><b>●</b></span
+						><span id="latest-place"><b>⌖</b></span>
+					</div>
+					<a id="latest-link" href="#" class="primary" target="_blank" rel="noopener"
+						>Ver minhas fotos <strong>→</strong></a
+					>
+				</div>
+			</section>
+			<section class="find" aria-label="Busca de eventos">
+				<div>
+					<h3>Não encontrou sua prova?</h3>
+					<p>Pesquise pelo nome do evento ou pela cidade.</p>
+				</div>
+				<form class="search" id="search-form">
+					<input
+						id="search-input"
+						aria-label="Buscar evento"
+						placeholder="Ex.: Corrida de Bauru"
+					/><button type="submit">Buscar</button>
+				</form>
+			</section>
+			<section id="eventos" class="archive">
+				<div class="archive-head">
+					<h2 id="archive-title">Todos os eventos</h2>
+					<a id="event-count" href="#eventos">Carregando...</a>
+				</div>
+				<div id="events-list" class="cards" aria-live="polite"></div>
+			</section>
+		</main>
+		<a
+			class="whatsapp"
+			href="https://wa.me/5516988308280"
+			target="_blank"
+			rel="noopener"
+			aria-label="Falar pelo WhatsApp"
+			><i>◉</i> Precisa de ajuda?</a
+		>
+		<script>
+			const placeholder =
+				"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e7ece6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2360706a' font-family='sans-serif' font-size='20'%3EFoto em breve%3C/text%3E%3C/svg%3E";
+			let events = [];
+			const normalize = (value) => (value || "").toLocaleLowerCase("pt-BR");
+			const byNewest = (a, b) =>
+				(b.data_inicio || "").localeCompare(a.data_inicio || "");
 
-    function card(event) {
-      const item = document.createElement("a");
-      item.className = "card";
-      item.href = event.link;
-      item.target = "_blank";
-      item.rel = "noopener";
-      item.innerHTML = `<img src="${event.imagem}" alt="Capa do evento ${event.titulo}" loading="lazy"><div class="card-copy"><small>${event.data} · ${event.local}</small><h3>${event.titulo}</h3><p>Ver fotos do evento →</p></div>`;
-      item.querySelector("img").addEventListener("error", e => { e.currentTarget.src = placeholder; });
-      return item;
-    }
+			function card(event) {
+				const item = document.createElement("a");
+				item.className = "card";
+				item.href = event.link;
+				item.target = "_blank";
+				item.rel = "noopener";
+				item.innerHTML = `<img src="${event.imagem}" alt="Capa do evento ${event.titulo}" loading="lazy"><div class="card-copy"><small>${event.data} · ${event.local}</small><h3>${event.titulo}</h3><p>Ver fotos do evento →</p></div>`;
+				item.querySelector("img").addEventListener("error", (e) => {
+					e.currentTarget.src = placeholder;
+				});
+				return item;
+			}
 
-    function render(list) {
-      const target = document.getElementById("events-list");
-      target.replaceChildren();
-      if (!list.length) { target.innerHTML = "<p>Nenhum evento encontrado.</p>"; return; }
-      list.forEach(event => target.appendChild(card(event)));
-      document.getElementById("event-count").textContent = `${list.length} eventos exibidos`;
-    }
+			function render(list) {
+				const target = document.getElementById("events-list");
+				target.replaceChildren();
+				if (!list.length) {
+					target.innerHTML = "<p>Nenhum evento encontrado.</p>";
+					return;
+				}
+				list.forEach((event) => target.appendChild(card(event)));
+				document.getElementById("event-count").textContent =
+					`${list.length} eventos exibidos`;
+			}
 
-    function showLatest(event) {
-      document.getElementById("latest-title").textContent = event.titulo;
-      document.getElementById("latest-date").innerHTML = `<b>●</b> ${event.data}`;
-      document.getElementById("latest-place").innerHTML = `<b>⌖</b> ${event.local}`;
-      document.getElementById("latest-link").href = event.link;
-      const image = document.getElementById("latest-image");
-      image.style.backgroundImage = `linear-gradient(90deg,rgba(16,32,29,.05),rgba(16,32,29,.55)),url("${event.imagem}")`;
-      image.setAttribute("aria-label", `Capa do evento ${event.titulo}`);
-    }
+			function showLatest(event) {
+				document.getElementById("latest-title").textContent = event.titulo;
+				document.getElementById("latest-date").innerHTML = `<b>●</b> ${event.data}`;
+				document.getElementById("latest-place").innerHTML =
+					`<b>⌖</b> ${event.local}`;
+				document.getElementById("latest-link").href = event.link;
+				const image = document.getElementById("latest-image");
+				image.style.backgroundImage = `linear-gradient(90deg,rgba(16,32,29,.05),rgba(16,32,29,.55)),url("${event.imagem}")`;
+				image.setAttribute("aria-label", `Capa do evento ${event.titulo}`);
+			}
 
-    async function loadEvents() {
-      try {
-        const response = await fetch("eventos.json?v=" + Date.now());
-        if (!response.ok) throw new Error("Eventos indisponíveis");
-        const sources = await response.json();
-        events = Object.values(sources).flat().sort(byNewest);
-        if (events.length) showLatest(events[0]);
-        render(events);
-      } catch (error) {
-        document.getElementById("events-list").innerHTML = "<p>Não foi possível carregar os eventos agora.</p>";
-        document.getElementById("event-count").textContent = "Tente novamente mais tarde";
-      }
-    }
+			async function loadEvents() {
+				try {
+					const response = await fetch("eventos.json?v=" + Date.now());
+					if (!response.ok) throw new Error("Eventos indisponíveis");
+					const sources = await response.json();
+					events = Object.values(sources).flat().sort(byNewest);
+					if (events.length) showLatest(events[0]);
+					render(events);
+				} catch (error) {
+					document.getElementById("events-list").innerHTML =
+						"<p>Não foi possível carregar os eventos agora.</p>";
+					document.getElementById("event-count").textContent =
+						"Tente novamente mais tarde";
+				}
+			}
 
-    document.getElementById("search-form").addEventListener("submit", event => event.preventDefault());
-    document.getElementById("search-input").addEventListener("input", event => {
-      const term = normalize(event.target.value.trim());
-      const result = events.filter(item => normalize(item.titulo).includes(term) || normalize(item.local).includes(term));
-      document.getElementById("archive-title").textContent = term ? "Resultados da busca" : "Todos os eventos";
-      render(result);
-    });
-    loadEvents();
-  </script>
-</body>
+			document
+				.getElementById("search-form")
+				.addEventListener("submit", (event) => event.preventDefault());
+			document
+				.getElementById("search-input")
+				.addEventListener("input", (event) => {
+					const term = normalize(event.target.value.trim());
+					const result = events.filter(
+						(item) =>
+							normalize(item.titulo).includes(term) ||
+							normalize(item.local).includes(term),
+					);
+					document.getElementById("archive-title").textContent = term
+						? "Resultados da busca"
+						: "Todos os eventos";
+					render(result);
+				});
+			loadEvents();
+		</script>
+	</body>
 </html>
-
