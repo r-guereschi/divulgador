@@ -654,40 +654,12 @@
 			let allEvents = { fotop: [], foco_radical: [], fotto: [] };
 			let searchTerm = "";
 
-			function parseDate(str) {
-				if (!str) return 0;
-				const part = str.split("-")[0].trim();
-
-				// Format: "DD/MM/YYYY" (fotop, fotto)
-				if (part.includes("/")) {
-					const [d, m, y] = part.split("/");
-					return new Date(+y, +m - 1, +d).getTime();
-				}
-
-				// Format: "DD Mon YYYY" (foco_radical)
-				const months = {
-					Jan: 0,
-					Feb: 1,
-					Mar: 2,
-					Apr: 3,
-					May: 4,
-					Jun: 5,
-					Jul: 6,
-					Aug: 7,
-					Sep: 8,
-					Oct: 9,
-					Nov: 10,
-					Dec: 11,
-				};
-				const parts = part.split(" ");
-				if (parts.length === 3) {
-					const d = +parts[0];
-					const m = months[parts[1]];
-					const y = +parts[2];
-					if (m !== undefined) return new Date(y, m, d).getTime();
-				}
-
-				return 0;
+			function sortDate(event) {
+				// `data_inicio` é ISO (AAAA-MM-DD), independente do idioma do portal.
+				// Eventos antigos sem migração ficam por último, sem tentar adivinhar a data.
+				return /^\d{4}-\d{2}-\d{2}$/.test(event.data_inicio || "")
+					? event.data_inicio
+					: "0000-00-00";
 			}
 
 			function cardHTML(ev) {
@@ -746,7 +718,7 @@
 				);
 
 				// Sort by date (most recent first)
-				merged.sort((a, b) => parseDate(b.data) - parseDate(a.data));
+				merged.sort((a, b) => sortDate(b).localeCompare(sortDate(a)));
 
 				// Count
 				const total = merged.length;
