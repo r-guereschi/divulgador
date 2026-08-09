@@ -307,20 +307,20 @@
       "data_fim": "2025-11-16"
     },
     {
-      "titulo": "Lupo Sport Corre SJRP",
-      "data": "15/11/2025",
-      "local": "São José do Rio Preto",
-      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_194073_g.jpg",
-      "link": "https://voce.fotop.com/fotos/eventos?evento=194073",
-      "data_inicio": "2025-11-15",
-      "data_fim": "2025-11-15"
-    },
-    {
       "titulo": "3 Festival de natação Nelson Parise",
       "data": "15/11/2025",
       "local": "Taquaritinga",
       "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_208642_g.jpg",
       "link": "https://voce.fotop.com/fotos/eventos?evento=208642",
+      "data_inicio": "2025-11-15",
+      "data_fim": "2025-11-15"
+    },
+    {
+      "titulo": "Lupo Sport Corre SJRP",
+      "data": "15/11/2025",
+      "local": "São José do Rio Preto",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_194073_g.jpg",
+      "link": "https://voce.fotop.com/fotos/eventos?evento=194073",
       "data_inicio": "2025-11-15",
       "data_fim": "2025-11-15"
     },
@@ -671,34 +671,6 @@
   ],
   "fotto": [
     {
-      "titulo": "CIRCUITO MUNDO VERDE - ETAPA BAURU",
-      "data": "Data não informada",
-      "local": "Bauru , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg",
-      "link": "https://www.fotto.com.br/circuito-mundo-verde-etapa-bauru/e/393658"
-    },
-    {
-      "titulo": "Circuito de Corridas Jaú Serve 2026 - Novo Horizonte",
-      "data": "Data não informada",
-      "local": "Novo Horizonte , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/389755/cover.1784558286681.jpg",
-      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-novo-horizonte/e/389755"
-    },
-    {
-      "titulo": "Circuito de Corridas Jaú Serve 2026 - Matão",
-      "data": "Data não informada",
-      "local": "Matão , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/362368/cover.1781208826968.jpg",
-      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-matao/e/362368"
-    },
-    {
-      "titulo": "Circuito Sesc de Corridas- Etapa Rio Preto",
-      "data": "Data não informada",
-      "local": "São José do Rio Preto , SP",
-      "imagem": "https://cdn.fotto.com.br/galleries/351986/cover.1780858584377.jpg",
-      "link": "https://www.fotto.com.br/circuito-sesc-de-corridas-etapa-rio-preto/e/351986"
-    },
-    {
       "titulo": "CAMPEONATO DE VOLEI DE AREIA",
       "data": "Data não informada",
       "local": "Taquaritinga , SP",
@@ -711,6 +683,34 @@
       "local": "Ibitinga , SP",
       "imagem": "https://cdn.fotto.com.br/galleries/321401/cover.1776712560975.jpg",
       "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-ibitinga/e/321401"
+    },
+    {
+      "titulo": "Circuito de Corridas Jaú Serve 2026 - Matão",
+      "data": "Data não informada",
+      "local": "Matão , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/362368/cover.1781208826968.jpg",
+      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-matao/e/362368"
+    },
+    {
+      "titulo": "Circuito de Corridas Jaú Serve 2026 - Novo Horizonte",
+      "data": "Data não informada",
+      "local": "Novo Horizonte , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/389755/cover.1784558286681.jpg",
+      "link": "https://www.fotto.com.br/circuito-de-corridas-jau-serve-2026-novo-horizonte/e/389755"
+    },
+    {
+      "titulo": "CIRCUITO MUNDO VERDE - ETAPA BAURU",
+      "data": "Data não informada",
+      "local": "Bauru , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/393658/cover.1785697083907.jpg",
+      "link": "https://www.fotto.com.br/circuito-mundo-verde-etapa-bauru/e/393658"
+    },
+    {
+      "titulo": "Circuito Sesc de Corridas- Etapa Rio Preto",
+      "data": "Data não informada",
+      "local": "São José do Rio Preto , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/351986/cover.1780858584377.jpg",
+      "link": "https://www.fotto.com.br/circuito-sesc-de-corridas-etapa-rio-preto/e/351986"
     },
     {
       "titulo": "SEGURALTA MARATHON 2026",
