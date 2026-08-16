@@ -363,6 +363,15 @@
   ],
   "foco_radical": [
     {
+      "titulo": "FLASHBACK MORNING RUN",
+      "data": "2026-08-16",
+      "local": "Ribeirão Preto / SP",
+      "imagem": "https://cdn.focoradical.com.br/newfoco/logos/20260805122117217709-FLASHBACK-MORNING-RUN.png",
+      "link": "https://vocee.focoradical.com.br/prova/20260816-flashback-morning-run-8669",
+      "data_inicio": "2026-08-16",
+      "data_fim": "2026-08-16"
+    },
+    {
       "titulo": "LIVE! RUN XP - SÃO JOSÉ DO RIO PRETO",
       "data": "2026-05-03",
       "local": "São José do Rio Preto / SP",
@@ -534,15 +543,6 @@
       "data_fim": "2022-11-20"
     },
     {
-      "titulo": "CORRIDA PEDESTRE 7 DE SETEMBRO 2022 - AMÉRICO BRASILIENSE",
-      "data": "2022-11-13",
-      "local": "Americo Brasiliense / SP",
-      "imagem": "https://cdn.focoradical.com.br/newfoco/banners/20221113105608AGU227SET0206.jpg",
-      "link": "https://vocee.focoradical.com.br/prova/20221113-corrida-pedestre-7-de-setembro-2022-americo-brasiliense",
-      "data_inicio": "2022-11-13",
-      "data_fim": "2022-11-13"
-    },
-    {
       "titulo": "1º GP MTB GUARIBA",
       "data": "2022-09-25",
       "local": "Guariba / SP",
@@ -658,6 +658,15 @@
       "link": "https://vocee.focoradical.com.br/prova/20200209-corrida-internacional-shopping-2020---sao-paulo",
       "data_inicio": "2020-02-09",
       "data_fim": "2020-02-09"
+    },
+    {
+      "titulo": "CORRIDA PEDESTRE 7 DE SETEMBRO 2022 - AMÉRICO BRASILIENSE",
+      "data": "2022-11-13",
+      "local": "Americo Brasiliense / SP",
+      "imagem": "https://cdn.focoradical.com.br/newfoco/banners/20221113105608AGU227SET0206.jpg",
+      "link": "https://vocee.focoradical.com.br/prova/20221113-corrida-pedestre-7-de-setembro-2022-americo-brasiliense",
+      "data_inicio": "2022-11-13",
+      "data_fim": "2022-11-13"
     },
     {
       "titulo": "14ª MEIA MARATONA INTERNACIONAL DE SÃO PAULO 2020",
