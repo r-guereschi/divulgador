@@ -1,7 +1,8 @@
 """Coleta os eventos e mantém um contrato de datas estável no eventos.json.
 
-`data` é o texto exibido. `data_inicio` e `data_fim` são datas ISO usadas pela
-interface; nenhuma camada do frontend precisa interpretar o idioma do portal.
+`data` é o texto exibido no formato DD/MM/YYYY. `data_inicio` e `data_fim` são
+datas ISO usadas pela interface; nenhuma camada do frontend precisa interpretar
+o idioma do portal.
 """
 import argparse
 import json
@@ -64,15 +65,49 @@ def dates_from_text(value):
     return [item[1] for item in sorted(found) if item[1]]
 
 
+def format_date_display(value):
+    """Formata todas as datas completas encontradas no texto para DD/MM/YYYY."""
+    replacements = []
+    patterns = (
+        ISO_DATE,
+        NUMERIC_DATE,
+        TEXT_DATE,
+    )
+    for pattern in patterns:
+        for match in pattern.finditer(value):
+            if pattern is ISO_DATE:
+                parsed = iso_date(*match.groups())
+            elif pattern is NUMERIC_DATE:
+                day, month, year = match.groups()
+                parsed = iso_date(year, month, day)
+            else:
+                day, month_name, year = match.groups()
+                month = MONTHS.get(ascii_key(month_name))
+                parsed = iso_date(year, month, day) if month else None
+            if parsed:
+                replacements.append((match.start(), match.end(), parsed))
+
+    replacements.sort()
+    non_overlapping = []
+    for replacement in replacements:
+        if not non_overlapping or replacement[0] >= non_overlapping[-1][1]:
+            non_overlapping.append(replacement)
+
+    formatted = value
+    for start, end, parsed in reversed(non_overlapping):
+        formatted = f"{formatted[:start]}{parsed[8:10]}/{parsed[5:7]}/{parsed[:4]}{formatted[end:]}"
+    return formatted
+
+
 def normalize_date_text(value):
-    """Retorna texto para exibição e limites ISO; não inventa ano ausente."""
+    """Retorna texto formatado para exibição e limites ISO."""
     display = clean_text(value)
     if ascii_key(display) in UNKNOWN_DATES:
         return display or "Data não informada", None, None
     parsed = dates_from_text(display)
     if not parsed:
         return display, None, None
-    return display, parsed[0], parsed[-1]
+    return format_date_display(display), parsed[0], parsed[-1]
 
 
 def with_normalized_dates(event):
@@ -311,16 +346,16 @@ def build_data(existing, scrape=True):
 
 def self_test():
     cases = {
-        "12/07/2026": ("2026-07-12", "2026-07-12"),
-        "01/05/2026 - 04/05/2026": ("2026-05-01", "2026-05-04"),
-        "03 MAI 2026": ("2026-05-03", "2026-05-03"),
-        "3 de outubro de 2026": ("2026-10-03", "2026-10-03"),
-        "2026-12-31": ("2026-12-31", "2026-12-31"),
-        "Data a definir": (None, None),
+        "12/07/2026": ("12/07/2026", "2026-07-12", "2026-07-12"),
+        "01/05/2026 - 04/05/2026": ("01/05/2026 - 04/05/2026", "2026-05-01", "2026-05-04"),
+        "03 MAI 2026": ("03/05/2026", "2026-05-03", "2026-05-03"),
+        "3 de outubro de 2026": ("03/10/2026", "2026-10-03", "2026-10-03"),
+        "2026-12-31": ("31/12/2026", "2026-12-31", "2026-12-31"),
+        "Data a definir": ("Data a definir", None, None),
     }
     for raw, expected in cases.items():
-        _, start, end = normalize_date_text(raw)
-        assert (start, end) == expected, (raw, start, end)
+        display, start, end = normalize_date_text(raw)
+        assert (display, start, end) == expected, (raw, display, start, end)
     print(f"OK: {len(cases)} formatos de data validados.")
 
 
