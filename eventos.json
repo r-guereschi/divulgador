@@ -359,24 +359,6 @@
       "link": "https://voce.fotop.com/events/4-corrida-e-caminhada-outubro-rosa-e-novembro-azul-2025/e/220493",
       "data_inicio": "2025-11-29",
       "data_fim": "2025-11-29"
-    },
-    {
-      "titulo": "Circuito Sesc de São Carlos 2025",
-      "data": "23/11/2025",
-      "local": "São Carlos",
-      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_178779_g.jpg",
-      "link": "https://voce.fotop.com/events/circuito-sesc-de-sao-carlos-2025/e/178779",
-      "data_inicio": "2025-11-23",
-      "data_fim": "2025-11-23"
-    },
-    {
-      "titulo": "Track & Field Experience Running - Matão",
-      "data": "16/11/2025",
-      "local": "Matão",
-      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_219010_g.jpg",
-      "link": "https://voce.fotop.com/events/track-field-experience-running-matao/e/219010",
-      "data_inicio": "2025-11-16",
-      "data_fim": "2025-11-16"
     }
   ],
   "foco_radical": [
@@ -679,6 +661,15 @@
     }
   ],
   "fotto": [
+    {
+      "titulo": "5ª Unimed Run Barretos",
+      "data": "18/10/2026",
+      "local": "Barretos , SP",
+      "imagem": "https://cdn.fotto.com.br/galleries/396176/cover.1792348046295.jpg",
+      "link": "https://www.fotto.com.br/5-unimed-run-barretos/e/396176",
+      "data_inicio": "2026-10-18",
+      "data_fim": "2026-10-18"
+    },
     {
       "titulo": "Pink Run",
       "data": "04/10/2026",
