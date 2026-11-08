@@ -1,6 +1,15 @@
 {
   "fotop": [
     {
+      "titulo": "8º DESAFIO SERRA DA ÁGUA LIMPA",
+      "data": "08/11/2026",
+      "local": "Monte Alto",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_358000_g.jpg",
+      "link": "https://voce.fotop.com/events/8-desafio-serra-da-agua-limpa/e/358000",
+      "data_inicio": "2026-11-08",
+      "data_fim": "2026-11-08"
+    },
+    {
       "titulo": "CIRCUITO MAIS MULHER - ETAPA SÃO PAULO 01/11/2026 - São Paulo, São Paulo - São Paulo / SP",
       "data": "01/11/2026",
       "local": "São Paulo",
@@ -271,20 +280,20 @@
       "data_fim": "2026-02-28"
     },
     {
-      "titulo": "TF Experience Running - CB Autos Araraquara | 2026",
+      "titulo": "Track&Field Experience Running - CB Autos Araraquara | 2026",
       "data": "22/02/2026",
       "local": "Araraquara",
       "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_234589_g.jpg",
-      "link": "https://voce.fotop.com/events/tf-experience-running-cb-autos-araraquara-2026/e/234589",
+      "link": "https://voce.fotop.com/events/track-field-experience-running-cb-autos-araraquara-2026/e/234589",
       "data_inicio": "2026-02-22",
       "data_fim": "2026-02-22"
     },
     {
-      "titulo": "TF Experience Running Jaú - CarnaRun | 2026",
+      "titulo": "Track&Field Experience Running Jaú - CarnaRun | 2026",
       "data": "08/02/2026",
       "local": "Jaú",
       "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_234590_g.jpg",
-      "link": "https://voce.fotop.com/events/tf-experience-running-jau-carnarun-2026/e/234590",
+      "link": "https://voce.fotop.com/events/track-field-experience-running-jau-carnarun-2026/e/234590",
       "data_inicio": "2026-02-08",
       "data_fim": "2026-02-08"
     },
@@ -350,6 +359,24 @@
       "link": "https://voce.fotop.com/events/77-san-silvestri-de-jaboticabal-2025/e/207108",
       "data_inicio": "2025-12-07",
       "data_fim": "2025-12-07"
+    },
+    {
+      "titulo": "TF Experience Running - CB Autos Araraquara | 2026",
+      "data": "22/02/2026",
+      "local": "Araraquara",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_234589_g.jpg",
+      "link": "https://voce.fotop.com/events/tf-experience-running-cb-autos-araraquara-2026/e/234589",
+      "data_inicio": "2026-02-22",
+      "data_fim": "2026-02-22"
+    },
+    {
+      "titulo": "TF Experience Running Jaú - CarnaRun | 2026",
+      "data": "08/02/2026",
+      "local": "Jaú",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_234590_g.jpg",
+      "link": "https://voce.fotop.com/events/tf-experience-running-jau-carnarun-2026/e/234590",
+      "data_inicio": "2026-02-08",
+      "data_fim": "2026-02-08"
     },
     {
       "titulo": "UNIMED RIO PRETO",
