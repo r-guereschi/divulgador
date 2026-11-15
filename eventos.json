@@ -1,6 +1,24 @@
 {
   "fotop": [
     {
+      "titulo": "Circuito Paulista Supermercados - Etapa Guaíra | 2026",
+      "data": "15/11/2026",
+      "local": "Guaíra",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_318582_g.jpg",
+      "link": "https://voce.fotop.com/events/circuito-paulista-supermercados-etapa-guaira-2026/e/318582",
+      "data_inicio": "2026-11-15",
+      "data_fim": "2026-11-15"
+    },
+    {
+      "titulo": "CIRCUITO MAIS MULHER - ETAPA RIBEIRÃO PRETO",
+      "data": "14/11/2026",
+      "local": "Ribeirão Preto",
+      "imagem": "https://photos.fotop.com/fotos/imagens/produtos_eventos/foto_310061_g.jpg",
+      "link": "https://voce.fotop.com/events/circuito-mais-mulher-etapa-ribeirao-preto/e/310061",
+      "data_inicio": "2026-11-14",
+      "data_fim": "2026-11-14"
+    },
+    {
       "titulo": "8º DESAFIO SERRA DA ÁGUA LIMPA",
       "data": "08/11/2026",
       "local": "Monte Alto",
